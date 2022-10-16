@@ -14,8 +14,8 @@ module.exports = {
   },
   // Configuração para build em modo de produção, encontrar o dominio corretamente
   viteFinal: (config, { configType }) => {
-    if (config === "PRODUCTION") {
-      config.base = "/ignite-lab-design-system";
+    if (configType === "PRODUCTION") {
+      config.base = "/ignite-lab-design-system/";
     }
 
     return config;
