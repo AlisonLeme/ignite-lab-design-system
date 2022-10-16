@@ -1,18 +1,23 @@
 module.exports = {
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
-  ],
-  "addons": [
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
   ],
-  "framework": "@storybook/react",
-  "core": {
-    "builder": "@storybook/builder-vite"
+  framework: "@storybook/react",
+  core: {
+    builder: "@storybook/builder-vite",
   },
-  "features": {
-    "storyStoreV7": true
-  }
-}
+  features: {
+    storyStoreV7: true,
+  },
+  // Configuração para build em modo de produção, encontrar o dominio corretamente
+  viteFinal: (config, { configType }) => {
+    if (config === "PRODUCTION") {
+      config.base = "/ignite-lab-design-system";
+    }
+
+    return config;
+  },
+};
