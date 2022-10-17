@@ -12,6 +12,7 @@ module.exports = {
   },
   features: {
     storyStoreV7: true,
+    interactionsDebugger: true,
   },
   // Configuração para build em modo de produção, encontrar o dominio corretamente
   viteFinal: (config, { configType }) => {
