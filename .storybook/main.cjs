@@ -4,7 +4,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    '@storybook/addon-a11y'
+    "@storybook/addon-a11y",
   ],
   framework: "@storybook/react",
   core: {
@@ -14,6 +14,8 @@ module.exports = {
     storyStoreV7: true,
     interactionsDebugger: true,
   },
+  staticDirs: ["../public"],
+
   // Configuração para build em modo de produção, encontrar o dominio corretamente
   viteFinal: (config, { configType }) => {
     if (configType === "PRODUCTION") {

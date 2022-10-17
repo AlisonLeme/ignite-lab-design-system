@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import axios from "axios";
 import { Checkbox } from "@radix-ui/react-checkbox";
 import { Button } from "../components/Button";
 import { Heading } from "../components/Heading";
@@ -13,8 +14,14 @@ export function SignIn() {
     // estado para simular um login
     const [isUserSignedIn , setIsUserSignedIn] = useState(false)
 
-    function handleSignIn(event: FormEvent) {
+    async function handleSignIn(event: FormEvent) {
         event.preventDefault()
+
+        // não faz sentido precisar de um back end para fazer teste em componentes
+        await axios.post('/sessions', {
+            email: 'alison@gmail.com',
+            password: 'alison12345'
+        })
 
         setIsUserSignedIn(true)
     }
